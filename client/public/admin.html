@@ -5,13 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex" />
   <title>Administration - Site GDP Duchère</title>
-  
-  <!-- Decap CMS -->
-  <link href="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.css" rel="stylesheet" />
 </head>
 <body>
-  <!-- L'interface admin de Decap CMS sera injectée ici -->
-  
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   
@@ -24,17 +19,57 @@
       window.netlifyIdentity.on("init", user => {
         if (!user) {
           window.netlifyIdentity.on("login", () => {
-            document.location.href = "/admin.html";
+            document.location.href = "/admin";
           });
         }
       });
     }
     
-    // Initialiser Decap CMS avec la configuration
+    // Initialiser Decap CMS avec la configuration inline
     CMS.init({
       config: {
-        load_config_file: true,
-        config_file: '/admin/config.yml'
+        backend: {
+          name: 'github',
+          repo: 'meunieralizee-sys/gdp-duchere-site',
+          branch: 'main',
+          base_url: 'https://api.netlify.com',
+          auth_endpoint: 'auth'
+        },
+        media_folder: 'client/public/uploads',
+        public_folder: '/uploads',
+        collections: [
+          {
+            name: 'pages',
+            label: 'Pages',
+            folder: 'client/public/content',
+            create: true,
+            slug: '{{slug}}',
+            fields: [
+              { label: 'Titre', name: 'title', widget: 'string' },
+              { label: 'Date de publication', name: 'date', widget: 'datetime' },
+              { label: 'Description', name: 'description', widget: 'text', required: false },
+              { label: 'Contenu', name: 'body', widget: 'markdown' },
+              { label: 'Image principale', name: 'featured_image', widget: 'image', required: false }
+            ]
+          },
+          {
+            name: 'settings',
+            label: 'Paramètres du site',
+            files: [
+              {
+                label: 'Informations générales',
+                name: 'general',
+                file: 'client/public/content/site-settings.json',
+                fields: [
+                  { label: 'Nom du site', name: 'site_name', widget: 'string', default: 'Site GDP Duchère' },
+                  { label: 'Description', name: 'site_description', widget: 'text' },
+                  { label: 'Email de contact', name: 'contact_email', widget: 'string', required: false },
+                  { label: 'Téléphone', name: 'phone', widget: 'string', required: false }
+                ]
+              }
+            ]
+          }
+        ]
       }
     });
   </script>
