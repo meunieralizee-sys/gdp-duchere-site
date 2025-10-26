@@ -1,0 +1,28 @@
+[build]
+  # Commande pour compiler l'application React
+  command = "npm run build"
+  
+  # Dossier contenant les fichiers compilés à déployer
+  publish = "dist/public"
+  
+  # Variables d'environnement pour le build
+  [build.environment]
+    NODE_VERSION = "22"
+    NPM_FLAGS = "--legacy-peer-deps"
+
+# Redirections pour le routing SPA (Single Page Application)
+# Toutes les URLs doivent pointer vers index.html pour que React Router fonctionne
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# Configuration pour forcer HTTPS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
