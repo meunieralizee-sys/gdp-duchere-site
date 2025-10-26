@@ -11,7 +11,13 @@
     NPM_FLAGS = "--legacy-peer-deps"
 
 # Redirections pour le routing SPA (Single Page Application)
-# Toutes les URLs doivent pointer vers index.html pour que React Router fonctionne
+# Exception pour la page admin de Decap CMS
+[[redirects]]
+  from = "/admin"
+  to = "/admin.html"
+  status = 200
+
+# Toutes les autres URLs doivent pointer vers index.html pour que React Router fonctionne
 [[redirects]]
   from = "/*"
   to = "/index.html"
