@@ -1,6 +1,6 @@
 [build]
   # Commande pour compiler l'application React
-  command = "npm install --legacy-peer-deps && npm run build"
+  command = "npm run build"
   
   # Dossier contenant les fichiers compilés à déployer
   publish = "dist/public"
