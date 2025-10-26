@@ -276,238 +276,293 @@ export default function Home() {
                 <CardContent className="space-y-2">
                   {structure.telephone && (
                     <div className="flex items-start gap-2 text-sm">
-                      <Phone className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{structure.telephone}</span>
+                      <Phone className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                      <a href={`tel:${structure.telephone}`} className="hover:text-orange-600">
+                        {structure.telephone}
+                      </a>
                     </div>
                   )}
                   <div className="flex items-start gap-2 text-sm">
-                    <MapPin className="w-4 h-4 text-purple-600 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{structure.adresse}</span>
+                    <MapPin className="w-4 h-4 text-gray-500 mt-0.5 flex-shrink-0" />
+                    <span className="text-gray-600">{structure.adresse}</span>
                   </div>
                 </CardContent>
               </Card>
             ))}
           </div>
+
+
         </div>
       </section>
 
       {/* Actions */}
-      <section id="actions" className="py-16 bg-purple-50">
+      <section id="actions" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Nos Actions</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="border-orange-200">
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="border-l-4 border-l-purple-600 hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-purple-600">Accompagnement Individuel</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <Heart className="w-6 h-6 text-orange-600" />
+                  Marrainage
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Orientation et construction de projet professionnel</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Accès aux droits et aux services</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Soutien dans les démarches administratives</span>
-                  </li>
-                </ul>
+                <p className="text-gray-700 mb-4">
+                  Programme de mentorat permettant aux jeunes de bénéficier de l'accompagnement d'un adulte référent pour les soutenir dans leur parcours d'insertion.
+                </p>
+                <Button variant="outline" className="border-orange-600 text-orange-600 hover:bg-orange-50">
+                  <a href="#contact-marrainage">Devenir marraine/parrain</a>
+                </Button>
               </CardContent>
             </Card>
 
-            <Card className="border-orange-200">
+            <Card className="border-l-4 border-l-purple-600 hover:shadow-xl transition-shadow">
               <CardHeader>
-                <CardTitle className="text-purple-600">Actions Collectives</CardTitle>
+                <CardTitle className="flex items-center gap-2">
+                  <Calendar className="w-6 h-6 text-orange-600" />
+                  T'change
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2 text-gray-700">
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Ateliers thématiques et sorties culturelles</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Activités sportives et de loisirs</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-orange-600 mt-1">•</span>
-                    <span>Projets citoyens et solidaires</span>
-                  </li>
-                </ul>
+                <p className="text-gray-700">
+                  Rendez-vous réguliers tous les derniers vendredis du mois de 17h à 19h sur la Place Gisèle Halimi, pour échanger, s'informer et créer du lien entre jeunes et structures.
+                </p>
               </CardContent>
             </Card>
+
+            <Card className="border-l-4 border-l-purple-600 hover:shadow-xl transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="w-6 h-6 text-orange-600" />
+                  Chantiers
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-700 mb-2">
+                  Chantiers éducatifs permettant aux jeunes de s'impliquer dans des projets concrets tout en développant des compétences professionnelles et sociales.
+                </p>
+                <p className="text-sm text-gray-600 mt-2 bg-purple-50 p-3 rounded">
+                  <strong>2024 :</strong> 8 chantiers dans le 9ème / 17 jeunes du QPV Duchère (sur 30 jeunes)
+                </p>
+              </CardContent>
+            </Card>
+
+
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">13</div>
+              <div className="text-gray-700">Structures membres</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">16-25</div>
+              <div className="text-gray-700">Ans (public cible)</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="text-4xl font-bold text-orange-600 mb-2">6+</div>
+              <div className="text-gray-700">Réunions en 2024/2025</div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Actualités */}
-      <section id="actus" className="py-16 bg-white">
+      {/* Actus */}
+      <section id="actus" className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Actualités</h2>
-          
+          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Actualités</h2>
+          <p className="text-center text-gray-600 mb-12">Suivez les dernières nouvelles du Groupe de Pairs</p>
+
+          {/* Message temporaire - à remplacer par les vraies actus plus tard */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-12 text-center border-2 border-dashed border-purple-200">
+              <div className="text-6xl mb-4">📰</div>
+              <h3 className="text-2xl font-bold text-gray-700 mb-3">Aucune actualité pour le moment</h3>
+              <p className="text-gray-500">Revenez bientôt pour découvrir nos dernières nouvelles et événements !</p>
+            </div>
+          </div>
+
+          {/* Grille prête pour les futures actus (cachée pour le moment) */}
+          {/* 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="border-purple-200 hover:shadow-xl transition-shadow">
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <img src="/actu-1.jpg" alt="Actualité 1" className="w-full h-48 object-cover rounded-t-lg" />
               <CardHeader>
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>15 octobre 2025</span>
-                </div>
-                <CardTitle className="text-orange-600">Nouvelle équipe de prévention</CardTitle>
+                <div className="text-sm text-purple-600 mb-2">12 janvier 2025</div>
+                <CardTitle className="text-orange-600">Titre de l'actualité</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">
-                  À partir de septembre 2025, une équipe de Prévention Spécialisée interviendra sur le quartier pour accompagner les 10-25 ans.
+                <p className="text-gray-600 text-sm mb-4">
+                  Extrait de l'actualité qui donne envie de lire la suite...
                 </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-purple-200 hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>1 octobre 2025</span>
-                </div>
-                <CardTitle className="text-orange-600">Journée portes ouvertes</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Venez découvrir les actions du Groupe de Pairs et rencontrer les structures partenaires lors de notre journée portes ouvertes.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-purple-200 hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="flex items-center gap-2 text-sm text-gray-500 mb-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>20 septembre 2025</span>
-                </div>
-                <CardTitle className="text-orange-600">Nouveau projet sportif</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600">
-                  Lancement d'un nouveau projet d'insertion par le sport en partenariat avec le Club Lyon La Duchère et Sport dans la Ville.
-                </p>
+                <Button className="w-full bg-purple-600 hover:bg-purple-700">Lire la suite</Button>
               </CardContent>
             </Card>
           </div>
+          */}
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="py-16 bg-gradient-to-br from-orange-50 via-white to-purple-50">
+      <section id="contact" className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Nous Contacter</h2>
-          
-          <div className="max-w-2xl mx-auto">
-            <Card className="border-purple-200 shadow-xl">
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Formulaire général */}
+            <Card className="shadow-xl">
               <CardHeader>
-                <CardTitle className="text-purple-600">Envoyez-nous un message</CardTitle>
-                <CardDescription>Nous vous répondrons dans les plus brefs délais</CardDescription>
+                <CardTitle>Contact Général</CardTitle>
+                <CardDescription>Pour toute demande d'information</CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={(e) => handleSubmit(e, formData.type)} className="space-y-4">
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600">
+                    Pour nous contacter, envoyez-nous un email à :
+                  </p>
                   <div className="space-y-2">
-                    <Label htmlFor="nom">Nom complet</Label>
-                    <Input
-                      id="nom"
-                      value={formData.nom}
-                      onChange={(e) => setFormData({ ...formData, nom: e.target.value })}
-                      required
-                    />
+                    <p className="text-sm font-medium text-gray-700">
+                      📧 <a href="mailto:a.meunier@mllyon.org" className="text-orange-600 hover:underline">a.meunier@mllyon.org</a>
+                    </p>
+                    <p className="text-sm font-medium text-gray-700">
+                      📧 <a href="mailto:margaux.jacquemin@afev.org" className="text-orange-600 hover:underline">margaux.jacquemin@afev.org</a>
+                    </p>
                   </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="telephone">Téléphone</Label>
-                    <Input
-                      id="telephone"
-                      type="tel"
-                      value={formData.telephone}
-                      onChange={(e) => setFormData({ ...formData, telephone: e.target.value })}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
-                    <Textarea
-                      id="message"
-                      rows={5}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      required
-                    />
-                  </div>
-
-                  <Button type="submit" className="w-full bg-gradient-to-r from-orange-600 to-purple-600 text-white">
-                    Envoyer le message
-                  </Button>
-                </form>
+                  <a 
+                    href="mailto:a.meunier@mllyon.org,margaux.jacquemin@afev.org?subject=Contact depuis le site Groupe de Pairs"
+                    className="w-full inline-block"
+                  >
+                    <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                      📨 Nous écrire
+                    </Button>
+                  </a>
+                </div>
               </CardContent>
             </Card>
 
-            <div className="mt-8 text-center">
-              <h3 className="text-xl font-bold mb-4 text-gray-900">Coordonnées</h3>
-              <div className="space-y-2 text-gray-700">
-                <p className="font-semibold">Mission Duchère</p>
-                <p>12 bis Place Gisèle Halimi</p>
-                <p>69009 Lyon</p>
-                <p className="flex items-center justify-center gap-2">
-                  <Phone className="w-4 h-4 text-purple-600" />
-                  04 37 49 73 90
-                </p>
-              </div>
+            {/* Formulaire marrainage */}
+            <Card id="contact-marrainage" className="border-purple-200 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-purple-600">Marrainage</CardTitle>
+                <CardDescription>Devenir marraine ou parrain d'un jeune</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600 mb-4">
+                    Remplissez le formulaire Google pour devenir marraine ou parrain d'un jeune du quartier.
+                  </p>
+                  <a 
+                    href="https://forms.gle/LzsngTe8M6uJpxxcA"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-block"
+                  >
+                    <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                      📝 Remplir le formulaire
+                    </Button>
+                  </a>
+                  <p className="text-xs text-gray-500 text-center">
+                    Le formulaire s'ouvrira dans un nouvel onglet
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Formulaire jeunes filles */}
+            <Card id="contact-jeunes" className="border-purple-200 shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-purple-600">Jeunes Filles</CardTitle>
+                <CardDescription>Être accompagnée par une marraine</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <p className="text-sm text-gray-600 mb-4">
+                    Remplissez le formulaire Google pour être accompagnée par une marraine.
+                  </p>
+                  <a 
+                    href="https://forms.gle/6xuDMHV2kBoc5mim8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-block"
+                  >
+                    <Button className="w-full bg-orange-600 hover:bg-orange-700">
+                      📝 Remplir le formulaire
+                    </Button>
+                  </a>
+                  <p className="text-xs text-gray-500 text-center">
+                    Le formulaire s'ouvrira dans un nouvel onglet
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Animateurs */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h3 className="text-xl font-bold text-center mb-8 text-gray-700">Animateurs de la Coordination</h3>
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            <div className="flex items-center justify-center h-24">
+              <img src="/logo-mission-locale.jpg" alt="Mission Locale Lyon" className="h-20 object-contain" />
+            </div>
+            <div className="flex items-center justify-center h-24">
+              <img src="/logo-repairs.png" alt="Le RePairs - AFEV" className="h-20 object-contain" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Partenaires */}
+      <section className="py-12 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h3 className="text-xl font-bold text-center mb-8 text-gray-700">Nos Partenaires Institutionnels</h3>
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            <div className="flex items-center justify-center h-20">
+              <img src="/logo-ville-lyon.jpg" alt="Ville de Lyon" className="h-16 object-contain" />
+            </div>
+            <div className="flex items-center justify-center h-20">
+              <img src="/logo-cite-educative.jpg" alt="Cité Éducative" className="h-16 object-contain" />
+            </div>
+            <div className="flex items-center justify-center h-20">
+              <img src="/logo-prefecture-rhone.jpg" alt="Préfecture du Rhône" className="h-16 object-contain" />
+            </div>
+            <div className="flex items-center justify-center h-20">
+              <img src="/logo-metropole-lyon.png" alt="Métropole de Lyon" className="h-16 object-contain" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-orange-600 via-purple-600 to-violet-700 text-white py-12">
+      <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">Groupe de Pairs</h3>
-              <p className="text-purple-100">
-                Coordination 16/25 ans - Quartier de la Duchère
+              <h4 className="font-bold mb-4">Groupe de Pairs Duchère</h4>
+              <p className="text-gray-400 text-sm">
+                Coordination 16/25 ans<br />
+                Quartier de la Duchère<br />
+                Lyon 9ème arrondissement
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold mb-4">Liens rapides</h3>
-              <ul className="space-y-2">
-                <li><a href="#presentation" className="text-purple-100 hover:text-white transition">Présentation</a></li>
-                <li><a href="#structures" className="text-purple-100 hover:text-white transition">Structures</a></li>
-                <li><a href="#actions" className="text-purple-100 hover:text-white transition">Actions</a></li>
-                <li><a href="#actus" className="text-purple-100 hover:text-white transition">Actualités</a></li>
-                <li><a href="#contact" className="text-purple-100 hover:text-white transition">Contact</a></li>
+              <h4 className="font-bold mb-4">Liens Rapides</h4>
+              <ul className="space-y-2 text-sm">
+                <li><a href="#presentation" className="text-gray-400 hover:text-purple-600">Présentation</a></li>
+                <li><a href="#structures" className="text-gray-400 hover:text-purple-400">Structures</a></li>
+                <li><a href="#actions" className="text-gray-400 hover:text-purple-400">Actions</a></li>
+                <li><a href="#actus" className="text-gray-400 hover:text-purple-400">Actus</a></li>
+                <li><a href="#contact" className="text-gray-400 hover:text-purple-400">Contact</a></li>
               </ul>
             </div>
-            <div>
-              <h3 className="text-xl font-bold mb-4">Contact</h3>
-              <p className="text-purple-100">
-                Mission Duchère<br />
-                12 bis Place Gisèle Halimi<br />
-                69009 Lyon<br />
-                04 37 49 73 90
-              </p>
-            </div>
+
           </div>
-          <div className="mt-8 pt-8 border-t border-purple-400 text-center text-purple-100">
-            <p>&copy; {new Date().getFullYear()} Groupe de Pairs - Duchère. Tous droits réservés.</p>
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
+            <p>&copy; 2024-2025 Groupe de Pairs Duchère - Tous droits réservés</p>
           </div>
         </div>
       </footer>
