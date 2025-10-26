@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
-import { parseMarkdown } from "@/utils/markdownParser";
+import { parseMarkdownEnhanced } from "@/utils/markdownParserEnhanced";
 import Navigation from "@/components/Navigation";
 
 interface PageData {
@@ -106,8 +106,8 @@ export default function CMSPage() {
     );
   }
 
-  // Convertir le Markdown en HTML
-  const htmlContent = parseMarkdown(pageData.body);
+  // Convertir le Markdown en HTML avec le parser amélioré
+  const htmlContent = parseMarkdownEnhanced(pageData.body, pageData.title);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-purple-50">
