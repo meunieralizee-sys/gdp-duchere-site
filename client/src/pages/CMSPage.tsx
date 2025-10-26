@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import { parseMarkdown } from "@/utils/markdownParser";
 
 interface PageData {
   title: string;
@@ -100,6 +99,9 @@ export default function CMSPage() {
     );
   }
 
+  // Convertir le Markdown en HTML
+  const htmlContent = parseMarkdown(pageData.body);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-purple-50">
       {/* Header avec image si disponible */}
@@ -142,25 +144,24 @@ export default function CMSPage() {
           </header>
           
           {/* Contenu Markdown formaté */}
-          <div className="prose prose-lg max-w-none
-            prose-headings:font-bold 
-            prose-h1:text-4xl prose-h1:mb-4 prose-h1:text-gray-800
-            prose-h2:text-3xl prose-h2:mb-3 prose-h2:mt-8 prose-h2:text-orange-600
-            prose-h3:text-2xl prose-h3:mb-2 prose-h3:mt-6 prose-h3:text-purple-600
-            prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
-            prose-a:text-orange-600 prose-a:no-underline hover:prose-a:underline
-            prose-strong:text-orange-600 prose-strong:font-bold
-            prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-4
-            prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-4
-            prose-li:text-gray-700 prose-li:mb-2
-            prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600
-            prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-purple-600
-            prose-img:rounded-lg prose-img:shadow-md
-          ">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>
-              {pageData.body}
-            </ReactMarkdown>
-          </div>
+          <div 
+            className="prose prose-lg max-w-none
+              prose-headings:font-bold 
+              prose-h1:text-4xl prose-h1:mb-4 prose-h1:text-gray-800
+              prose-h2:text-3xl prose-h2:mb-3 prose-h2:mt-8 prose-h2:text-orange-600
+              prose-h3:text-2xl prose-h3:mb-2 prose-h3:mt-6 prose-h3:text-purple-600
+              prose-p:text-gray-700 prose-p:leading-relaxed prose-p:mb-4
+              prose-a:text-orange-600 prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-orange-600 prose-strong:font-bold
+              prose-ul:list-disc prose-ul:ml-6 prose-ul:mb-4
+              prose-ol:list-decimal prose-ol:ml-6 prose-ol:mb-4
+              prose-li:text-gray-700 prose-li:mb-2
+              prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:pl-4 prose-blockquote:italic prose-blockquote:text-gray-600
+              prose-code:bg-gray-100 prose-code:px-2 prose-code:py-1 prose-code:rounded prose-code:text-purple-600
+              prose-img:rounded-lg prose-img:shadow-md
+            "
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
 
           {/* Bouton retour */}
           <div className="mt-12 pt-6 border-t border-gray-200">
