@@ -1,0 +1,40 @@
+backend:
+  name: github
+  repo: meunieralizee-sys/gdp-duchere-site
+  branch: main
+  base_url: https://api.netlify.com
+  auth_endpoint: auth
+
+# Configuration locale pour tester en développement (optionnel)
+# local_backend: true
+
+# Dossier où seront stockés les fichiers média uploadés
+media_folder: "client/public/uploads"
+public_folder: "/uploads"
+
+# Collections de contenu
+collections:
+  - name: "pages"
+    label: "Pages"
+    folder: "client/public/content"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: "title", widget: "string" }
+      - { label: "Date de publication", name: "date", widget: "datetime" }
+      - { label: "Description", name: "description", widget: "text", required: false }
+      - { label: "Contenu", name: "body", widget: "markdown" }
+      - { label: "Image principale", name: "featured_image", widget: "image", required: false }
+
+  - name: "settings"
+    label: "Paramètres du site"
+    files:
+      - label: "Informations générales"
+        name: "general"
+        file: "client/public/content/site-settings.json"
+        fields:
+          - { label: "Nom du site", name: "site_name", widget: "string", default: "Site GDP Duchère" }
+          - { label: "Description", name: "site_description", widget: "text" }
+          - { label: "Email de contact", name: "contact_email", widget: "string", required: false }
+          - { label: "Téléphone", name: "phone", widget: "string", required: false }
+
