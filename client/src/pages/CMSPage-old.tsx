@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
 import { parseMarkdown } from "@/utils/markdownParser";
-import Navigation from "@/components/Navigation";
 
 interface PageData {
   title: string;
@@ -73,13 +72,10 @@ export default function CMSPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen">
-        <Navigation />
-        <div className="flex items-center justify-center py-32">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
-            <p className="text-gray-600">Chargement...</p>
-          </div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-purple-50">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-500 mx-auto mb-4"></div>
+          <p className="text-gray-600">Chargement...</p>
         </div>
       </div>
     );
@@ -87,20 +83,17 @@ export default function CMSPage() {
 
   if (error || !pageData) {
     return (
-      <div className="min-h-screen">
-        <Navigation />
-        <div className="flex items-center justify-center py-32">
-          <div className="text-center max-w-md mx-auto px-4">
-            <div className="text-6xl mb-4">😕</div>
-            <h1 className="text-4xl font-bold mb-4 text-gray-800">Page non trouvée</h1>
-            <p className="text-gray-600 mb-6">{error || "Cette page n'existe pas"}</p>
-            <a 
-              href="/" 
-              className="inline-block bg-gradient-to-r from-orange-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
-            >
-              Retour à l'accueil
-            </a>
-          </div>
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-orange-50 via-white to-purple-50">
+        <div className="text-center max-w-md mx-auto px-4">
+          <div className="text-6xl mb-4">😕</div>
+          <h1 className="text-4xl font-bold mb-4 text-gray-800">Page non trouvée</h1>
+          <p className="text-gray-600 mb-6">{error || "Cette page n'existe pas"}</p>
+          <a 
+            href="/" 
+            className="inline-block bg-gradient-to-r from-orange-500 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+          >
+            Retour à l'accueil
+          </a>
         </div>
       </div>
     );
@@ -111,8 +104,6 @@ export default function CMSPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-purple-50">
-      <Navigation />
-      
       {/* Header avec image si disponible */}
       {pageData.featured_image && (
         <div className="w-full h-64 md:h-96 overflow-hidden">
