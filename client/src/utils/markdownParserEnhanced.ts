@@ -34,7 +34,7 @@ function parseActionsWithCards(markdown: string): string {
 
   // Couleurs alternées pour les cartes
   const colors = ['#ea580c', '#9333ea']; // Orange et violet
-  const icons = ['❤️', '📅', '👥', '🎯', '🌟', '💡']; // Icônes variées
+  const defaultIcons = ['❤️', '📅', '👥', '🎯', '🌟', '💡']; // Icônes par défaut si aucune n'est spécifiée
   
   // Diviser le contenu en sections basées sur les titres H2
   const sections = html.split(/^##\s+/gm);
@@ -44,16 +44,29 @@ function parseActionsWithCards(markdown: string): string {
     if (index === 0 && section.trim() === '') return; // Ignorer la première section vide
 
     const lines = section.split('\n');
-    const title = lines[0].trim();
+    let title = lines[0].trim();
     const content = lines.slice(1).join('\n').trim();
 
     if (!title) return;
 
-    // Choisir une couleur et une icône
+    // Détecter si un emoji est présent au début du titre
+    const emojiRegex = /^([\u{1F300}-\u{1F9FF}]|[\u{2600}-\u{26FF}]|[\u{2700}-\u{27BF}])\s+(.+)$/u;
+    const emojiMatch = title.match(emojiRegex);
+    
+    let icon: string;
+    if (emojiMatch) {
+      // Utiliser l'emoji spécifié par l'utilisateur
+      icon = emojiMatch[1];
+      title = emojiMatch[2]; // Retirer l'emoji du titre
+    } else {
+      // Utiliser un emoji par défaut
+      const iconIndex = (index - 1) % defaultIcons.length;
+      icon = defaultIcons[iconIndex];
+    }
+
+    // Choisir une couleur
     const colorIndex = (index - 1) % colors.length;
-    const iconIndex = (index - 1) % icons.length;
     const color = colors[colorIndex];
-    const icon = icons[iconIndex];
 
     // Parser le contenu de la section
     let parsedContent = content;
