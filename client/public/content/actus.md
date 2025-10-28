@@ -2,8 +2,6 @@
 title: Actus
 date: 2025-10-28T15:58:00.000+01:00
 ---
-## 📻 Radio Zaï Zaï - MJC Duchère
-
 Nous avons le plaisir de vous annoncer la naissance d'un nouveau média porté par les jeunesses de la Duchère : {violet}Radio Zaï Zaï{/violet}
 
 Initiée par l'Espace Jeunesses de la **MJC Duchère**, la {violet}Radio Zaï Zaï{/violet} est la voix qui s'élève depuis la colline de la Duchère.
