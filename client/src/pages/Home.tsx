@@ -369,42 +369,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Actus */}
-      <section id="actus" className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4 text-gray-900">Actualités</h2>
-          <p className="text-center text-gray-600 mb-12">Suivez les dernières nouvelles du Groupe de Pairs</p>
-
-          {/* Message temporaire - à remplacer par les vraies actus plus tard */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-white rounded-lg shadow-lg p-12 text-center border-2 border-dashed border-purple-200">
-              <div className="text-6xl mb-4">📰</div>
-              <h3 className="text-2xl font-bold text-gray-700 mb-3">Aucune actualité pour le moment</h3>
-              <p className="text-gray-500">Revenez bientôt pour découvrir nos dernières nouvelles et événements !</p>
-            </div>
-          </div>
-
-          {/* Grille prête pour les futures actus (cachée pour le moment) */}
-          {/* 
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="shadow-lg hover:shadow-xl transition-shadow">
-              <img src="/actu-1.jpg" alt="Actualité 1" className="w-full h-48 object-cover rounded-t-lg" />
-              <CardHeader>
-                <div className="text-sm text-purple-600 mb-2">12 janvier 2025</div>
-                <CardTitle className="text-orange-600">Titre de l'actualité</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 text-sm mb-4">
-                  Extrait de l'actualité qui donne envie de lire la suite...
-                </p>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700">Lire la suite</Button>
-              </CardContent>
-            </Card>
-          </div>
-          */}
-        </div>
-      </section>
-
       {/* Contact */}
       <section id="contact" className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -555,7 +519,7 @@ export default function Home() {
                 <li><a href="#presentation" className="text-gray-400 hover:text-purple-600">Présentation</a></li>
                 <li><a href="#structures" className="text-gray-400 hover:text-purple-400">Structures</a></li>
                 <li><a href="#actions" className="text-gray-400 hover:text-purple-400">Actions</a></li>
-                <li><a href="#actus" className="text-gray-400 hover:text-purple-400">Actus</a></li>
+
                 <li><a href="#contact" className="text-gray-400 hover:text-purple-400">Contact</a></li>
               </ul>
             </div>
