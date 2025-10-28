@@ -128,6 +128,20 @@ function parseActionsWithCards(markdown: string): string {
 function parseStandardMarkdown(markdown: string): string {
   let html = markdown;
 
+  // Balises de couleur personnalisées {orange}texte{/orange}
+  html = html.replace(/\{orange\}(.+?)\{\/orange\}/g, '<span style="color: #ea580c; font-weight: bold;">$1</span>');
+  html = html.replace(/\{violet\}(.+?)\{\/violet\}/g, '<span style="color: #9333ea; font-weight: bold;">$1</span>');
+  html = html.replace(/\{vert\}(.+?)\{\/vert\}/g, '<span style="color: #16a34a; font-weight: bold;">$1</span>');
+  html = html.replace(/\{rouge\}(.+?)\{\/rouge\}/g, '<span style="color: #dc2626; font-weight: bold;">$1</span>');
+  html = html.replace(/\{bleu\}(.+?)\{\/bleu\}/g, '<span style="color: #2563eb; font-weight: bold;">$1</span>');
+  
+  // Variantes sans gras
+  html = html.replace(/\{orange-light\}(.+?)\{\/orange-light\}/g, '<span style="color: #ea580c;">$1</span>');
+  html = html.replace(/\{violet-light\}(.+?)\{\/violet-light\}/g, '<span style="color: #9333ea;">$1</span>');
+  html = html.replace(/\{vert-light\}(.+?)\{\/vert-light\}/g, '<span style="color: #16a34a;">$1</span>');
+  html = html.replace(/\{rouge-light\}(.+?)\{\/rouge-light\}/g, '<span style="color: #dc2626;">$1</span>');
+  html = html.replace(/\{bleu-light\}(.+?)\{\/bleu-light\}/g, '<span style="color: #2563eb;">$1</span>');
+
   // Titres (H1 à H6)
   html = html.replace(/^######\s+(.+)$/gm, '<h6>$1</h6>');
   html = html.replace(/^#####\s+(.+)$/gm, '<h5>$1</h5>');
