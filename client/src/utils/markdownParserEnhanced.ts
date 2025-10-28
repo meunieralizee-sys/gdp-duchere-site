@@ -189,7 +189,7 @@ function parseStandardMarkdown(markdown: string): string {
     const trimmedLine = line.trim();
     
     if (trimmedLine === '' && currentParagraph !== '') {
-      if (!currentParagraph.match(/^<(h[1-6]|ul|ol|blockquote|hr|li)/)) {
+      if (!currentParagraph.match(/^<(h[1-6]|ul|ol|blockquote|hr|li|img)/)) {
         paragraphs.push(`<p>${currentParagraph}</p>`);
       } else {
         paragraphs.push(currentParagraph);
@@ -197,15 +197,28 @@ function parseStandardMarkdown(markdown: string): string {
       currentParagraph = '';
     } 
     else if (trimmedLine !== '') {
-      if (currentParagraph !== '') {
-        currentParagraph += '<br />';
+      // Si la ligne est un titre, une liste, une image ou un élément bloc, l'ajouter directement
+      if (trimmedLine.match(/^<(h[1-6]|ul|ol|blockquote|hr|img)/)) {
+        if (currentParagraph !== '') {
+          if (!currentParagraph.match(/^<(h[1-6]|ul|ol|blockquote|hr|li|img)/)) {
+            paragraphs.push(`<p>${currentParagraph}</p>`);
+          } else {
+            paragraphs.push(currentParagraph);
+          }
+          currentParagraph = '';
+        }
+        paragraphs.push(trimmedLine);
+      } else {
+        if (currentParagraph !== '') {
+          currentParagraph += '<br />';
+        }
+        currentParagraph += trimmedLine;
       }
-      currentParagraph += trimmedLine;
     }
   }
 
   if (currentParagraph !== '') {
-    if (!currentParagraph.match(/^<(h[1-6]|ul|ol|blockquote|hr|li)/)) {
+    if (!currentParagraph.match(/^<(h[1-6]|ul|ol|blockquote|hr|li|img)/)) {
       paragraphs.push(`<p>${currentParagraph}</p>`);
     } else {
       paragraphs.push(currentParagraph);
